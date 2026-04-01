@@ -1,18 +1,15 @@
-Movie Watchlist App
+🎬 CineStack — My Movie Vault
 
 Description:-
-WatchWise is a simple movie watchlist web app where you can add movies you want to watch and manage them easily.
-I built this project using HTML, CSS, and basic JavaScript to practice DOM manipulation and handling user input.
-Features
-* Add movies with name and poster URL
-* Display movies in a clean card layout
-* Remove movies from the list
+CineStack is a movie search and watchlist web app. Users can search for any movie 
+using the OMDb API and save favourites to a personal watchlist.
 
 Features:-
-Search movies using OMDb API
-Add/remove movies from watchlist
-Save watchlist using localStorage
-Responsive UI
+- Search movies by title using the OMDb API
+- Filter results by decade (2020s, 2010s, 2000s, etc.)
+- Sort movies by year (newest/oldest)
+- Add/remove movies from a personal watchlist
+- Watchlist saved using localStorage
 
 API Used:-
 OMDb API - https://www.omdbapi.com/
@@ -22,10 +19,11 @@ HTML
 CSS
 JavaScript (Fetch API, Array HOFs)
 
-How it works
-You just type the movie name and paste its poster link, then click on Add. The movie instantly shows up in your watchlist below.
-You can remove any movie anytime using the remove button.
+How to Run:-
+Open index.html in any browser — no installation needed.
 
 
 Made by Ayana Sharma
+
+
 
