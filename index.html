@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineStack | My Movie Vault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🎬 CineStack</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search movies (e.g. Inception)...">
+            <button id="searchBtn">Search</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="results-section">
+            <div class="section-header">
+                <h2>Explore Movies</h2>
+                <select id="sortSelect">
+                    <option value="default">Sort by: Default</option>
+                    <option value="newest">Year: Newest First</option>
+                    <option value="oldest">Year: Oldest First</option>
+                </select>
+            </div>
+            <div id="movieGrid" class="grid">
+                <p class="placeholder-text">Your search results will appear here ✨</p>
+            </div>
+        </main>
+
+        <aside class="watchlist-sidebar">
+            <h2>My Watchlist</h2>
+            <div id="watchlistGrid" class="watchlist-items">
+                </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
