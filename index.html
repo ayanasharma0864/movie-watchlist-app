@@ -1,41 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CineStack — A sleek movie watchlist app. Search, filter, sort, and save movies from the OMDb API.">
     <title>CineStack | My Movie Vault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- ── Header / Search Bar ── -->
     <header>
-        <div class="logo">🎬 CineStack</div>
+        <div class="logo" id="logo">🎬 CineStack</div>
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search movies (e.g. Inception)...">
+            <input type="text" id="searchInput" placeholder="Search movies… (e.g. Inception)">
             <button id="searchBtn">Search</button>
         </div>
+        <button id="themeToggle" class="theme-btn" title="Toggle dark/light mode">🌙</button>
     </header>
 
+    <!-- ── Main Layout ── -->
     <div class="container">
+
+        <!-- Results Section -->
         <main class="results-section">
             <div class="section-header">
-                <h2>Explore Movies</h2>
-                <select id="sortSelect">
-                    <option value="default">Sort by: Default</option>
-                    <option value="newest">Year: Newest First</option>
-                    <option value="oldest">Year: Oldest First</option>
-                </select>
+                <h1>Explore Movies</h1>
+                <div class="controls">
+                    <select id="typeFilter" aria-label="Filter by type">
+                        <option value="">All Types</option>
+                        <option value="movie">Movies</option>
+                        <option value="series">Series</option>
+                        <option value="episode">Episodes</option>
+                    </select>
+                    <select id="decadeFilter" aria-label="Filter by decade">
+                        <option value="all">All Decades</option>
+                        <option value="2020">2020s</option>
+                        <option value="2010">2010s</option>
+                        <option value="2000">2000s</option>
+                        <option value="1990">1990s</option>
+                        <option value="1980">1980s</option>
+                        <option value="older">Before 1980</option>
+                    </select>
+                    <select id="sortSelect" aria-label="Sort results">
+                        <option value="default">Sort: Default</option>
+                        <option value="newest">Year: Newest</option>
+                        <option value="oldest">Year: Oldest</option>
+                        <option value="az">Title: A → Z</option>
+                        <option value="za">Title: Z → A</option>
+                    </select>
+                </div>
             </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="spinner hidden"></div>
+
+            <!-- Error Banner -->
+            <div id="errorBanner" class="error-banner hidden"></div>
+
+            <!-- Movie Grid -->
             <div id="movieGrid" class="grid">
-                <p class="placeholder-text">Your search results will appear here ✨</p>
+                <div class="empty-state" id="emptyState">
+                    <span class="empty-icon">🎥</span>
+                    <p>Search something above to get started</p>
+                    <p class="empty-sub">Try "Inception", "Batman", or "Interstellar"</p>
+                </div>
             </div>
+
+            <!-- Pagination -->
+            <div id="pagination" class="pagination hidden"></div>
         </main>
 
+        <!-- Watchlist Sidebar -->
         <aside class="watchlist-sidebar">
-            <h2>My Watchlist</h2>
-            <div id="watchlistGrid" class="watchlist-items">
-                </div>
-        </main>
+            <h2>My Watchlist <span id="watchlistCount" class="wl-count hidden">0</span></h2>
+            <div id="watchlistGrid" class="watchlist-items"></div>
+            <button id="randomBtn" class="random-btn hidden">🎲 Random Movie Night</button>
+        </aside>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Movie Detail Modal -->
+    <div id="movieModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="modalClose" class="modal-close">✕</button>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
